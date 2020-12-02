@@ -79,7 +79,7 @@ type Tag struct {
 
 // GetTag returns Tag by ID
 func GetTag(id uint64) (*Tag, error) {
-	db, err := sql.Open("mysql", "root:1234567@tcp(127.0.0.1:3306)/blog")
+	db, err := sql.Open("mysql", "root:123456@tcp(127.0.0.1:3306)/blog")
 	if err != nil {
 		//return nil, errors.New("DB Service Temporary Unavailable")
 		return nil, DBConnectionError{errMsg: "DB Service Temporary Unavailable"}
