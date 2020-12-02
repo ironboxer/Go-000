@@ -13,7 +13,7 @@
 sql.ErrNoRows虽然是Err开头的,但其内涵并不表示为错误,或者异常,更多的是一种状态码/标识符,类似于Http Status Code。
 
 
-
+---
 
 https://golang.org/pkg/database/sql/#Row
 
@@ -40,3 +40,5 @@ func (r *Row) Scan(dest ...interface{}) error
 ```
 
 Scan copies the columns from the matched row into the values pointed at by dest. See the documentation on Rows.Scan for details. If more than one row matches the query, Scan uses the first row and discards the rest. If no row matches the query, Scan returns ErrNoRows.
+
+---
