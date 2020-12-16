@@ -2,24 +2,27 @@ package service
 
 import (
 	"context"
-	"github.com/ironboxer/week04/api"
-	"github.com/ironboxer/week04/internal/dao"
+
+	v1 "Week04/api/tag/v1"
+
+	"Week04/internal/biz"
 	"github.com/pkg/errors"
 )
 
 type TagService struct {
-	dao dao.Dao
+	t *biz.TagUsecase
+	v1.UnimplementedTagServer
 }
 
-func NewTagService(dao dao.Dao) TagService {
-	return TagService{dao: dao}
+func NewTagService(t *biz.TagUsecase) v1.TagServer {
+	return &TagService{t: t}
 }
 
-func (t *TagService) GetTag(ctx context.Context, req api.TagRequest) (*api.TagResponse, error) {
-	tag, err := t.dao.GetTag(ctx, req.Id)
+func (t *TagService) GetTag(ctx context.Context, req *v1.TagRequest) (*v1.TagResponse, error) {
+	tag, err := t.t.GetTag(req.Id)
 	if err != nil {
 		return nil, errors.Wrap(err, "Not Found")
 	}
-	resp := api.TagResponse{Id: tag.ID, Name: tag.Name}
+	resp := v1.TagResponse{Id: tag.ID, Name: tag.Name}
 	return &resp, nil
 }

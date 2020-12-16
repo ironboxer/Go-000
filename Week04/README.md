@@ -2,3 +2,57 @@
 
 以上作业，要求提交到Github上面，Week04作业提交地址：
 https://github.com/Go-000/Go-000/issues/76
+
+```bash
+➜  Week04 git:(main) tree
+.
+├── Makefile
+├── README.md
+├── api
+│   └── tag
+│       └── v1
+│           ├── tag.pb.go
+│           ├── tag.proto
+│           └── tag_grpc.pb.go
+├── bin
+│   └── server
+├── cmd
+│   └── server
+│       ├── main.go
+│       ├── wire.go
+│       └── wire_gen.go
+├── conf
+│   ├── setting.go
+│   └── setting.ini
+├── go.mod
+├── go.sum
+└── internal
+    ├── biz
+    │   └── tag.go
+    ├── data
+    │   └── tag.go
+    ├── pkg
+    │   └── grpc
+    │       └── server.go
+    ├── server
+    │   └── server.go
+    └── service
+        └── tag.go
+
+14 directories, 18 files
+```
+
+编译
+```bash
+make build
+```
+
+运行
+```bash
+make run
+```
+
+清理
+```bash
+make clean
+```
