@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package api;
+
+service Tag {
+  rpc GetTag(TagRequest) returns (TagResponse);
+}
+
+message TagRequest {
+  uint64 id = 1;
+}
+
+message TagResponse {
+  uint64 id = 1;
+  string name = 2;
+}
